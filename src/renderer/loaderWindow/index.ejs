@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline'"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <div style="text-align:center;margin-top: 70%">
+      <span id="info">Text</span>
+    </div>
+  </body>
+  <script>
+    window.electron.ipcRenderer.once('ipc-example', (arg) => {
+      document.getElementById("info").textContent=arg;
+    });
+
+    window.electron.ipcRenderer.myPing();
+  </script>
+</html>
